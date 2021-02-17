@@ -31,7 +31,7 @@ async def on_reaction_add(reaction, user):
                 h = ''
             await reaction.message.remove_reaction(reaction.emoji, user)
             embed = discord.Embed(title= '📢ㅣ공지 사항', description=(f'{reaction.message.content}'), colour=0x594841)
-            embed.set_footer(text='개발자ㅣ앙기모띠')
+            embed.set_footer(text='렌바 디스코드')
             await client.get_channel(int(811524005835702332)).send(h,embed=embed)
 
     if str(reaction.emoji) == ("🗑"):
