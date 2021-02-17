@@ -49,8 +49,7 @@ async def on_message(message):
         await message.delete()
 
     if message.content.startswith('렌바야 도움'):
-        embed = discord.Embed(title="렌바봇의 명령어들", description="줌을 보다 편히 입장하세요!", color=0x62c1cc) # Embed의 기본 틀(색상, 메인 제목, 설명)을 잡아줍니다
-        embed.add_field(name="조회/종례", value="https://us02web.zoom.us/j/85772423415?pwd=R0srQy9STmJWaHZNOWtsMkxFS3N5QT09", inline=True)
+        embed = discord.Embed(title="렝바봇의 명령어들", description="렌바의 서버를 서포트 해주는 봇입니다!", color=0x62c1cc) # Embed의 기본 틀(색상, 메인 제목, 설명)을 잡아줍니다
         embed.set_footer(text="상갈") # 하단에 들어가는 조그마한 설명을 잡아줍니다
         await message.channel.send(embed=embed) # embed를 포함 한 채로 메시지를 전송합니다.
 
