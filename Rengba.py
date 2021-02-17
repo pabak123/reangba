@@ -9,7 +9,7 @@ client = discord.Client()
 @client.event
 async def on_ready():
     print("봇이 성공적으로 실행되었습니다.")
-    messages = ["1","2","3","4"]
+    messages = ["렌바 서버 공식 봇입니다!","렌바야 도움","렌바 디스코드에서 욕을 사용하지 마세요!","궁금한거는 바로 물어보세요!"]
     while True:
         await client.change_presence(status=discord.Status.online, activity=discord.Game(name=messages[0]))
         messages.append(messages.pop(0))
