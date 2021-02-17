@@ -1,5 +1,6 @@
 import discord 
 import asyncio
+import os
 
 everyone = False
 client = discord.Client()
@@ -61,4 +62,5 @@ async def on_message(message):
             await message.add_reaction("📢")
             await message.add_reaction("🗑")
 
-client.run("ODExNTEwMDA2MjU2MTA3NTMx.YCzPlg.pPoG-fbRLUHIIIjWEzdTEBydwO0")
+access_token = os.environ["BOT_TOKEN"]
+client.run(access_token)
