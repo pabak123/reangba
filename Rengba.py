@@ -3,7 +3,9 @@ import asyncio
 import os
 
 everyone = False
-client = discord.Client()
+intents = discord.Intents.default()
+intents.members = True
+client = discord.Client(intents=intents)
 
 
 @client.event
@@ -18,9 +20,16 @@ async def on_ready():
 @client.event
 async def on_connect():
     for emoji in client.emojis:
-        print(emoji)
+        print(emoji) 
 
+@client.event
+async def on_member_join(member):
+    guild = client.get_guild() # YOUR INTEGER GUILD ID HERE
+    welcome_channel = guild.get_channel() # YOUR INTEGER CHANNEL ID HERE
+    await welcome_channel.send(f'Renba님의 서버에 오신것을 환영합니다!, {member.mention} !  :partying_face:')
+    await member.send(f'Renba님의 디스코드 서버에 오신것을 환영합니다, {member.name}!  :partying_face:')
 
+        
 @client.event
 async def on_reaction_add(reaction, user):
     if str(reaction.emoji) == ("📢"):
@@ -41,6 +50,9 @@ async def on_reaction_add(reaction, user):
 
 @client.event
 async def on_message(message):
+    
+    if message.content == '어서오세요':
+        await message.channel.send('안녕하세요!')
 
     if "개새끼" in message.content or "씨발" in message.content or "바보" in message.content:
         embed = discord.Embed(timestamp=message.created_at, colour=discord.Colour.red(), title=":no_entry_sign: | 경고!", description=f"{message.author.mention}님 욕하지 마세요")
@@ -54,7 +66,7 @@ async def on_message(message):
         await message.channel.send(embed=embed) # embed를 포함 한 채로 메시지를 전송합니다.
 
     if message.content == "!채널생성":
-        channel = await guild.create_text_channel('채팅 채널')
+        await guild.create_text_channel("{message.content}")
 
     if message.channel.id == 811523338383654932:
         if message.author.id == 326334598206324736:
