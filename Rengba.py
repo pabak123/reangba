@@ -30,7 +30,7 @@ async def on_reaction_add(reaction, user):
             else:
                 h = ''
             await reaction.message.remove_reaction(reaction.emoji, user)
-            embed = discord.Embed(title= '📢ㅣ공지 사항', description=(f'{reaction.message.content}'), colour=0x594841)
+            embed = discord.Embed(title= '📢ㅣ공지 사항', description=(f'{reaction.message.content}'), colour=0x00fff9)
             embed.set_footer(text='렌바 디스코드')
             await client.get_channel(int(811524005835702332)).send(h,embed=embed)
 
@@ -49,7 +49,7 @@ async def on_message(message):
         await message.delete()
 
     if message.content.startswith('렌바야 도움'):
-        embed = discord.Embed(title="렝바봇의 명령어들", description="렌바의 서버를 서포트 해주는 봇입니다!", color=0x62c1cc) # Embed의 기본 틀(색상, 메인 제목, 설명)을 잡아줍니다
+        embed = discord.Embed(title="렝바봇의 명령어들", description="렌바의 서버를 서포트 해주는 봇입니다!", color=0x00fff9) # Embed의 기본 틀(색상, 메인 제목, 설명)을 잡아줍니다
         embed.set_footer(text="상갈") # 하단에 들어가는 조그마한 설명을 잡아줍니다
         await message.channel.send(embed=embed) # embed를 포함 한 채로 메시지를 전송합니다.
 
